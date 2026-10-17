@@ -40,6 +40,20 @@ With **Known reference object** calibration, enter the object's length in millim
 
 All linear measurements are Euclidean pixel distances multiplied by the selected calibration scale. The largest detected face is measured when an image contains multiple faces. Quality warnings are heuristics, not validated acceptance criteria.
 
+## Example result
+
+The values below are **illustrative sample data only**. They are not measurements from a real person, an uploaded photo, or a validated study.
+
+| Measurement | Example value |
+| --- | ---: |
+| Mouth opening | 8.4 mm |
+| Mouth width | 48.3 mm |
+| Jaw width | 112.7 mm |
+| Face height proxy | 172.4 mm |
+| Opening-to-height ratio | 0.049 |
+
+In the app, saved results appear in **Saved records** and can be downloaded as a CSV file. The sample values in this README are not added to the app database or export.
+
 ## Records and CSV export
 
 Choose **Save this measurement** to save a generated anonymous case code, measurements, calibration label, quality warnings, and timestamp in SQLite. The **Saved records** tab shows stored cases and provides **Download CSV** for export. The image itself is processed in memory and is not saved.

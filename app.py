@@ -219,6 +219,53 @@ def render_records_tab() -> None:
     )
 
 
+def render_about_tab() -> None:
+    """Explain the demo's purpose, methods, limitations, and data handling."""
+    st.markdown('<div class="section-kicker">About this project</div>', unsafe_allow_html=True)
+    st.markdown(
+        "## Experimental facial measurements from a photo\n"
+        "AirwayScope is an academic research demonstration. It uses estimated face landmarks "
+        "to calculate a small set of facial distances and ratios. It is not clinically validated "
+        "and must not be used to diagnose or guide treatment."
+    )
+
+    purpose_col, method_col = st.columns(2, gap="large")
+    with purpose_col:
+        with st.container(border=True):
+            st.markdown("### What it measures")
+            st.markdown(
+                "- **Mouth opening:** inner upper to lower lip distance.\n"
+                "- **Mouth width:** distance between mouth corners.\n"
+                "- **Jaw width:** distance between left and right jaw landmarks.\n"
+                "- **Face height proxy:** forehead proxy to chin.\n"
+                "- **Opening-to-height ratio:** mouth opening divided by the face height proxy."
+            )
+    with method_col:
+        with st.container(border=True):
+            st.markdown("### How the estimates work")
+            st.markdown(
+                "MediaPipe Face Mesh estimates facial landmarks. The app calculates Euclidean "
+                "pixel distances, then applies a scale to express linear measurements in millimetres. "
+                "A known reference object is preferred. Iris scaling uses an assumed average iris "
+                "diameter of 11.7 mm and is approximate (about 10%)."
+            )
+
+    st.markdown("### Limitations")
+    st.markdown(
+        "Landmarks can shift with pose, perspective, lighting, expression, and occlusion. "
+        "Quality messages are simple heuristics, not validated acceptance criteria. "
+        "The face-height value is a simplified proxy, not anatomical total face height."
+    )
+    st.markdown("### Privacy and research use")
+    st.markdown(
+        "Photos are processed in memory and are not saved. If you save a record, the local SQLite "
+        "database stores an anonymous case code, measurements, calibration label, warnings, and "
+        "timestamp. You can download saved records as CSV from the Saved records tab. Obtain "
+        "informed consent, avoid identifying details, and follow your institution's research "
+        "ethics and data-governance requirements."
+    )
+
+
 def main() -> None:
     """Render the AirwayScope analysis and records views."""
     st.markdown(
@@ -232,11 +279,13 @@ def main() -> None:
         '<div class="demo-pill">RESEARCH DEMO · NOT FOR CLINICAL USE</div></div>',
         unsafe_allow_html=True,
     )
-    analysis_tab, records_tab = st.tabs(["Measure a photo", "Saved records"])
+    analysis_tab, records_tab, about_tab = st.tabs(["Measure a photo", "Saved records", "About"])
     with analysis_tab:
         render_analysis_tab()
     with records_tab:
         render_records_tab()
+    with about_tab:
+        render_about_tab()
     st.markdown(
         '<div class="helper" style="text-align:center;margin-top:30px">Experimental estimates only. Not clinically validated and not for diagnosis or treatment.</div>',
         unsafe_allow_html=True,

@@ -28,6 +28,8 @@ For more consistent estimates:
 5. For preferred scale calibration, include an object of known length (such as a small ruler) close to the face and in the same plane. Avoid placing it closer to the camera than the face.
 6. Use an image whose shorter dimension is at least 480 pixels.
 
+No sample photographs are included in this repository. The `sample_images/` directory contains only a README note. Only add photos of yourself or people who have explicitly agreed to inclusion in this public repository.
+
 With **Known reference object** calibration, enter the object's length in millimetres and the pixel coordinates of its two endpoints. **Iris estimate** is faster but approximate (about 10%). Face pose, perspective, lighting, occlusion, and expression can affect landmarks and measurements.
 
 ## Measurements

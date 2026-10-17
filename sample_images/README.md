@@ -1,4 +1,4 @@
 # Sample images
 
-This directory is intentionally empty. Use only photos with appropriate informed consent; do not commit identifiable face images.
+This directory intentionally contains no photos. Only add a photo of yourself or of someone who has explicitly agreed to have it included in this public repository. Do not add third-party sample images without permission.
 
